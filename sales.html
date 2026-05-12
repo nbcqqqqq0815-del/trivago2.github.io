@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivago 精選方案 - 專屬你的旅遊選擇</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif; scroll-behavior: smooth; }
+        .accent-color { color: #007faf; }
+        .bg-accent { background-color: #007faf; }
+        .card-hover:hover { transform: translateY(-10px); transition: all 0.3s ease; }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+            <div class="text-2xl font-bold accent-color">trivago <span class="text-gray-400 font-light">Smart Select</span></div>
+            <div class="space-x-4">
+                <button onclick="searchTrivago('deals')" class="text-gray-600 hover:text-blue-600 font-medium">找優惠</button>
+                <button onclick="location.href='#plans'" class="bg-accent text-white px-6 py-2 rounded-full font-medium hover:opacity-90 transition">立即開始</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="py-16 px-4 text-center bg-gradient-to-b from-blue-50 to-white border-b">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">精準搜尋，讓旅行更簡單</h1>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">我們為您預設了三種最常用的搜尋情境，點擊下方方案，立即查看全球即時報價。</p>
+    </header>
+
+    <!-- Plans Section -->
+    <section id="plans" class="py-20 max-w-7xl mx-auto px-4">
+        <div class="grid md:grid-cols-3 gap-8">
+            
+            <!-- 方案 1: 小資激省版 -->
+            <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 flex flex-col card-hover border-t-4 border-t-blue-400">
+                <div class="mb-4 text-blue-500 font-bold uppercase tracking-widest text-sm">Value Seekers</div>
+                <h3 class="text-2xl font-bold mb-4 text-gray-800">小資激省版</h3>
+                <p class="text-gray-600 mb-6 italic">「預算有限，但想看世界的願望無限。」</p>
+                <ul class="mb-8 space-y-4 flex-grow">
+                    <li class="flex items-center text-sm text-gray-700">
+                        <span class="text-green-500 mr-2">✔</span> 自動篩選最低價青旅與旅店
+                    </li>
+                    <li class="flex items-center text-sm text-gray-700">
+                        <span class="text-green-500 mr-2">✔</span> 排除高額加值費用
+                    </li>
+                    <li class="flex items-center text-sm text-gray-700">
+                        <span class="text-green-500 mr-2">✔</span> 優先顯示折扣力度最大房型
+                    </li>
+                </ul>
+                <button onclick="searchTrivago('budget')" class="w-full py-4 bg-blue-500 text-white font-bold rounded-xl hover:bg-blue-600 shadow-md transition">
+                    搜尋最低價飯店 →
+                </button>
+            </div>
+
+            <!-- 方案 2: 家庭豪華版 -->
+            <div class="bg-white p-8 rounded-2xl shadow-2xl border-2 border-accent flex flex-col relative card-hover transform scale-105">
+                <div class="absolute top-0 right-0 bg-accent text-white text-xs px-4 py-1 rounded-bl-lg font-bold">精選推薦</div>
+                <div class="mb-4 text-accent font-bold uppercase tracking-widest text-sm">Family & Quality</div>
+                <h3 class="text-2xl font-bold mb-4 text-gray-800">家庭豪華版</h3>
+                <p class="text-gray-600 mb-6 italic">「給家人最安心、舒適的住宿體驗。」</p>
+                <ul class="mb-8 space-y-4 flex-grow">
+                    <li class="flex items-center text-sm text-gray-700">
+                        <span class="text-blue-500 mr-2">✔</span> 鎖定 8.0分以上高評價飯店
+                    </li>
+                    <li class="flex items-center text-sm text-gray-700">
+                        <span class="text-blue-500 mr-2">✔</span> 篩選含早餐與游泳池設施
+                    </li>
+                    <li class="flex items-center text-sm text-gray-700">
+                        <span class="text-blue-500 mr-2">✔</span> 優先展示可免費取消方案
+                    </li>
+                </ul>
+                <button onclick="searchTrivago('family')" class="w-full py-4 bg-accent text-white font-bold rounded-xl hover:opacity-90 shadow-xl transition">
+                    搜尋高評價家庭房 →
+                </button>
+            </div>
+
+            <!-- 方案 3: 快速預訂版 -->
+            <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 flex flex-col card-hover border-t-4 border-t-purple-400">
+                <div class="mb-4 text-purple-500 font-bold uppercase tracking-widest text-sm">Business & Fast</div>
+                <h3 class="text-2xl font-bold mb-4 text-gray-800">快速預訂版</h3>
+                <p class="text-gray-600 mb-6 italic">「效率至上，住在離景點/會場最近的地方。」</p>
+                <ul class="mb-8 space-y-4 flex-grow">
+                    <li class="flex items-center text-sm text-gray-700">
+                        <span class="text-purple-500 mr-2">✔</span> 按地理位置與交通便利性排序
+                    </li>
+                    <li class="flex items-center text-sm text-gray-700">
+                        <span class="text-purple-500 mr-2">✔</span> 快速篩選提供 WiFi 與工作區飯店
+                    </li>
+                    <li class="flex items-center text-sm text-gray-700">
+                        <span class="text-purple-500 mr-2">✔</span> 支援當日緊急預訂
+                    </li>
+                </ul>
+                <button onclick="searchTrivago('fast')" class="w-full py-4 bg-purple-500 text-white font-bold rounded-xl hover:bg-purple-600 shadow-md transition">
+                    搜尋核心地段飯店 →
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-12 px-4 text-center">
+        <p class="opacity-50 text-sm">此頁面為 AI 自動化行銷展示，點擊按鈕將導向 Trivago 官網進行搜尋。</p>
+    </footer>
+
+    <!-- 腳本邏輯：點擊跳轉至 Trivago 並帶入篩選參數 -->
+    <script>
+        function searchTrivago(type) {
+            let baseUrl = "https://www.trivago.com.tw/zh-Hant/srl/飯店-台北-台灣?";
+            let params = "";
+
+            switch(type) {
+                case 'budget':
+                    // 篩選：價格由低到高 (需配合 Trivago 參數，這裡演示導向熱門搜尋)
+                    params = "search=200-64463;item=1443628;sortOrder=price";
+                    break;
+                case 'family':
+                    // 篩選：星級與評分優先
+                    params = "search=200-64463;item=1443628;sortOrder=rating";
+                    break;
+                case 'fast':
+                    // 篩選：地理位置中心
+                    params = "search=200-64463;item=1443628;sortOrder=distance";
+                    break;
+                default:
+                    params = "";
+            }
+            
+            // 提醒使用者即將跳轉
+            alert("正在為您導向 Trivago，並自動篩選「" + type + "」相關飯店資訊...");
+            window.location.href = baseUrl + params;
+        }
+    </script>
+</body>
+</html>
